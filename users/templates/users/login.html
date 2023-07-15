@@ -4,19 +4,23 @@
 <div class="container">
     <form method="POST" class="col-12 col-md-6 pl-3 pr-3 pl-md-0 pr-md-0">
         {% csrf_token %}
+        <img src="https://i.ibb.co/TkVbVCj/wolf.png" width="70" height="70"  alt="LOGO"> 
         <fieldset class="form-group">
             <legend class="mb-3 white-important">
-                Login
+                Iniciar sesion
             </legend>
             {{ form | crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-primary" type="submit">Login</button>
+            <button class="btn btn-outline-primary" type="submit">Iniciar Sesion</button>
+            {% if form.errors %}
+            <p>Usuario o contraseña no es valida</p>
+            {% endif %}
         </div>
     </form>
     <div class="pt-3">
         <small class="text-muted">
-            Do you need an account? <a class="ml-2" href="{% url 'register-users' %}">Sign up</a>
+            Necesitas una cuenta? <a class="ml-2" href="{% url 'register-users' %}">Registrate en Wolfer</a>
         </small>
     </div>
 </div>

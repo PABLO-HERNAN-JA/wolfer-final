@@ -1,16 +1,16 @@
 :root {
-    --muted-color: rgba(255, 255, 255, 0.5);
+    --muted-color: 
 }
 
 
 body {
-  background: #15202b;
+  background: #ffffff;
   color: var(--muted-color);
   margin-top: 5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--muted-color);
+  color: #000000;
 }
 
 ul {
@@ -18,7 +18,7 @@ ul {
 }
 
 .bg-steel {
-  background-color: #15202b;
+  background-color: #1E96EB;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -71,9 +71,9 @@ ul {
 }
 
 a {
-    color: white;
+    color: #1E96EB;
     text-underline: none;
-     text-decoration: none !important;
+     text-decoration: none;
 }
 a:hover {
     color: #00FBD7;
@@ -88,7 +88,7 @@ article {
 }
 
 .white-important {
-    color: white;
+    color: #000000;
     font-weight: bold;
 }
 
@@ -99,7 +99,7 @@ article {
 .btn-outline-primary {
     border-color: white;
     color: white !important;
-    padding: 12px 80px 12px 80px;
+    padding: 10px 60px 10px 60px;
     font-weight: bold;
     background-color: #1da1f2;
     border:0;
@@ -107,9 +107,9 @@ article {
 }
 
 .btn:active, .btn-outline-primary:hover {
-    color: #00FBD7 !important;
-    background-color: #36405e !important;
-    border-color: #00FBD7 !important;
+    color: #000000 !important;
+    background-color: #90909046;
+    border-color: #000000 !important;
 }
 
 .col-form-label {
@@ -117,7 +117,7 @@ article {
 }
 
 .form-control {
-    background-color: #36405e !important;
+    background-color: #ebecec !important;
     color: var(--muted-color) !important;
     box-shadow: 0 0 0 0 !important;
     border-radius: 20px !important;
@@ -126,13 +126,13 @@ article {
 textarea:focus, input:focus {
     box-shadow: 0 0 0 0 !important;
     border-color: #00FBD7 !important;
-    color: white !important;
+     color: rgb(0, 0, 0) !important;
 }
 
 .alert-success {
-    color: #00FBD7;
-    background-color: #36405e;
-    border-color: #00FBD7;
+    color: #050101;
+    background-color: #90909046;
+    border-color: #000000;
 }
 
 .pointer-cur {
@@ -141,7 +141,7 @@ textarea:focus, input:focus {
 
 .btn-info {
     color: white;
-    background-color: #36405e;
+    background-color: #90909046;
     border-color: white;
 }
 
@@ -152,13 +152,13 @@ textarea:focus, input:focus {
 
 .btn-outline-secondary:hover {
     color: #00FBD7 !important;
-    background-color: #36405e !important;
+    background-color: #90909046;
     border-color: #00FBD7 !important;
 }
 
 .alert-danger {
     color: #ff00f0 !important;
-    background-color: #36405e !important;
+    background-color: #90909046; 
     border-color: #ff00f0 !important;
 }
 
@@ -172,7 +172,7 @@ ul {
 }
 
 .hovered-tweet {
-    background-color: #90909017;
+    background-color: #90909046;
     border-radius: 20px;
 }
 
@@ -183,20 +183,19 @@ ul {
 .hovered-tweet:hover {
     -webkit-transition: background-color ease-in-out .2s;
     -webkit-transition: border ease-in-out .2s;
-    background-color: #2d3741 !important;
     border: 1px solid rgba(255, 255, 255, 1);
     border-radius: 20px;
 }
 
 .hovered-tweet-comment {
-    background-color: #2d3741 !important;
+    background-color: #90909046;
     padding:15px;
     border-radius: 20px;
     border:1px solid grey;
 }
 
 .hovered-tweet-comment-in{
-    background-color: #2d3741 !important;
+    background-color: #90909046;
     padding:12px;
     border-radius: 20px;
 }
@@ -213,7 +212,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .t-section{
-  background-color: #2d3741;
+  background-color: #90909046;
   border-radius: 25px;
 }
 
@@ -224,7 +223,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .profile-section{
-  background-color: #2d3741;
+  background-color: #90909046;
   padding: 5px;
   border-radius: 25px;
 }

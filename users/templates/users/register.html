@@ -2,21 +2,94 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-    <form method="POST" class="col-12 col-md-6 pl-3 pr-3 pl-md-0 pr-md-0">
+    <form id="registroForm" method="POST" class="col-12 col-md-6 pl-3 pr-3 pl-md-0 pr-md-0">
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="mb-3 white-important">
-                Register a new account
+                Registrar una nueva cuenta
             </legend>
             {{ form | crispy }}
         </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-primary" type="submit">Sign Up</button>
+        <div id="re" class="form-group">
+            
         </div>
+        <button class="btn btn-outline-primary" id="registerButton" onclick="mostrarAviso(event)" >Registrarse</button>
     </form>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <b>¡Estás a punto de registrarte a Wolfer!</b>
+        <p>Queremos asegurarte que los datos proporcionados serán utilizados únicamente con fines prácticos y didácticos. No se utilizarán de manera malintencionada ni se compartirán con terceros.</p>
+        <p>Si estás de acuerdo, por favor revisa los datos antes de continuar con el registro.</p>
+        <p>SALUDOS DE LOS ALUMNOS UTSJR-JALPAN</p>
+        </div>
+        </div>
+        <style>
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        }
+        
+        .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        }
+        </style>
+<script>
+    function mostrarAviso(event) {
+        event.preventDefault();
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        
+        modal.style.display = "block";
+        
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+        var registroForm = document.getElementById("registroForm");
+        var registerButton = document.getElementById("registerButton");
+
+        registerButton.onclick = function() {
+            registroForm.submit();
+        }
+    }
+    </script>
+    
+            
+
     <div class="pt-3">
         <small class="text-muted">
-            Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+            ¿Ya tienes un cuenta? <a class="ml-2" href="{% url 'login' %}">Iniciar sesion</a>
         </small>
     </div>
 </div>

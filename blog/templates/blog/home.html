@@ -1,13 +1,17 @@
 {% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
     <div class="row">
         <div class="col-12 col-md-3 pr-4 dont-move">
-            <a href="/"> <h2><img class="img-fluid" width="60" src="{% static 'blog/logo.png' %}">BlogRoom</h2></a><br>
+            <a href="/"> <h2><img class="img-fluid" width="60" src="https://i.ibb.co/TkVbVCj/wolf.png">WOLFER</h2></a><br>
             <div class="profile-section">
             <h3 class="white-important p-2">
                 Profile
-            </h3>
+            
+            <a class="btn btn-sm btn-outline-primary mb-4 mr-3 " href="{% url 'profile' %}">
+                Editar
+            </a></h3>
             <article class="media content-section" style="height: 140px; width: 100%">
                 {%  if user_profile != None %}
                     <div class="mt-2 d-flex full-width align-items-center">
@@ -49,10 +53,10 @@
             <article class="media content-section">
                 <div class="row full-width pl-2">
                     <div class="col-6">
-                            Followers
+                            Seguidores
                     </div>
                     <div class="col-6">
-                            Following
+                            Siguiendo
                     </div>
                     {%  if user_profile != None %}
                         <div class="col-6">
@@ -92,8 +96,11 @@
             <div class="d-flex">
                 {% if user_profile is None %}
                 <div style="margin-left: auto; margin-right:auto">
+                   <!-- <a aling="center" class="btn btn-sm btn-outline-primary mb-4 mr-3 " href="{% url 'profile' %}">
+                        Editar
+                    </a>-->
                     <a class="btn btn-sm btn-outline-primary mb-4 mr-3 " href="{% url 'post-create' %}">
-                        Tweet
+                        Crear Publicacion
                     </a>
                 </div>
                 {% endif %}
@@ -104,11 +111,11 @@
                             <button style="margin-left: 18px" class="btn btn-sm btn-outline-primary"
                                     name="{% if can_follow %}follow{% else %}unfollow{% endif %}"
                                     type="submit">
-                                 {% if can_follow %}
-                                     FOLLOW
-                                 {% else %}
-                                     UNFOLLOW
-                                 {% endif %}
+                                {% if can_follow %}
+                                    FOLLOW
+                                {% else %}
+                                    UNFOLLOW
+                                {% endif %}
                             </button>
                         </div>
                     </form>
@@ -120,10 +127,32 @@
             <div class="full-width row">
                 <div class="col-6">
                     <h3 class="white-important mb-3">
-                        Tweets
+                        Publicaciones
                     </h3>
                 </div>
-                 <div class="col-6 no-padding">
+                        <!--Crear tweet
+                        <div class="container">
+                            <h3 class="white-important">
+                                {{  tag_line }}
+                            </h3>
+                            <form method="POST" class="col-12 col-md-6 no-padding pr-3 pr-md-0">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    {{ form | crispy }}
+                                </fieldset>
+                                <div id="div_id_content" class="form-group"> <label for="id_content" class=" requiredField">
+                                    Content<span class="asteriskField">*</span> </label> <div> <textarea name="content" cols="40" rows="10" maxlength="1000" class="textarea form-control" required="" id="id_content"></textarea> </div> </div>
+                                <div class="form-group">
+                                    <button class="btn btn-outline-primary" type="submit">Aceptar</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+                        Fin script-->
+                <div class="col-6 no-padding">
                     <h6
                             style="position: absolute; bottom: 0; right: 0"
                             class="white-important mb-3">
@@ -165,7 +194,7 @@
                             class="mb-2"
                             style="width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.1)"></div>
                     <a
-                            style="color: rgba(255, 255, 255, 0.5) !important;"
+                            style="color: rgb(0, 0, 0) !important;"
                             href="{% url 'post-detail' post.id %}">
                         <p class="mb-4">
                             {{ post.content }}
@@ -244,12 +273,12 @@
             <form action="{% url 'search' %}" method="post">{% csrf_token %}
                 <div class="search-container">
                     <div class="search">
-                    <input required name="search" type="text" id="zip-code-input" placeholder="Search Twitter">
+                    <input required name="search" type="text" id="zip-code-input" placeholder="Buscar">
                     <button type="submit" style="border:0; background: transparent;"><i class="fa fa-search"></i> </button> </a>
                 </form>
               </div>
             </div>
-            <h3 class="white-important mb-3 mt-4"> Trends </h3>
+            <h3 class="white-important mb-3 mt-4"> Tendencias</h3>
 
                 {%  if user_profile is None %}
 
@@ -257,7 +286,7 @@
 
                     <div class="row ">
                         <div class="col-12">
-                            <h3>Who to follow</h3>
+                            <h3>Puedes seguir a</h3>
                         </div>
                         <ul class="col-12 mt-2">
                             {% for user in all_users %}
@@ -285,12 +314,10 @@
 
                 </article>
                 {% endif %}
-                <p><a href="">Terms</a>,
-<a href="">Privacy policy</a>,
-<a href="">Cookies</a>,
-<a href="">Ads info</a>,
-<a href="">More</a>
-© 2020 Twitter, Inc.</p>
+                <p><!--<a href="">Terms</a>--> Creado por alumnos de la UTSJR
+© 2023<br><a href="https://www.facebook.com/pablo.hernanjasso.7?mibextid=ZbWKwL">Pablo Jasso</a><br>
+<a href="https://www.facebook.com/felipe.mayorgamelo.1?mibextid=ZbWKwL">Felipe Mayorga</a>
+</p>
 
         </div>
     </div>
